@@ -1,0 +1,5 @@
+#!/bin/bash
+#starts server in Python virtual environment
+
+source venv/bin/activate
+python manage.py runserver

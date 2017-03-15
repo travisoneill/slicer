@@ -1,0 +1,18 @@
+#!/bin/bash
+#script to setup environment to run app locally
+
+# change txt files to js in /frontend
+./unzip
+
+#install node dependencies and build webpack bundle.js
+cd frontend
+npm install frontend
+npm run webpack:build
+cd ..
+
+# setup python virtual environment and install dependencies
+pip install virtualenv
+virtualenv -p python3 venv
+source venv/bin/activate
+pip install -r requirements.txt
+deactivate
