@@ -1,0 +1,6 @@
+#!/bin/bash
+#converts .js extensions in /frontend to .txt to send zip over gmail
+mv frontend/index.js frontend/index.txt
+mv frontend/slider.js frontend/slider.txt
+mv frontend/webpack.config.js frontend/webpack.config.txt
+mv frontend/webpack.deploy.config.js frontend/webpack.deploy.config.txt

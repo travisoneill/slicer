@@ -1,0 +1,6 @@
+#!/bin/bash
+#converts .txt extensions in /frontend to .js
+mv frontend/index.txt frontend/index.js
+mv frontend/slider.txt frontend/slider.js
+mv frontend/webpack.config.txt frontend/webpack.config.js
+mv frontend/webpack.deploy.config.txt frontend/webpack.deploy.config.js
