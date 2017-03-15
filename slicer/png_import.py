@@ -2,6 +2,7 @@ import os
 import png
 import dicom
 import matplotlib
+import threading
 
 matplotlib.use('TkAgg')
 import matplotlib.pylab as pylab
@@ -16,11 +17,18 @@ def png_from_voxel(voxel, path_to_directory):
     _make_directory(path_to_directory + '/xz')
     _make_directory(path_to_directory + '/yz')
     for idx, xy_slice in enumerate(slice_2d(voxel, 'z')):
-        png_from_array(xy_slice, path_to_directory + '/xy', _make_filename(6, idx))
+        # png_from_array(xy_slice, path_to_directory + '/xy', _make_filename(6, idx))
+        threading.Thread(None, png_from_array, None, (xy_slice, path_to_directory + '/xy', _make_filename(6, idx)) ).run()
     for idx, xz_slice in enumerate(slice_2d(voxel, 'y')):
-        png_from_array(xz_slice, path_to_directory + '/xz', _make_filename(6, idx))
+        # png_from_array(xz_slice, path_to_directory + '/xz', _make_filename(6, idx))
+        threading.Thread(None, png_from_array, None, (xz_slice, path_to_directory + '/xz', _make_filename(6, idx)) ).run()
     for idx, yz_slice in enumerate(slice_2d(voxel, 'x')):
-        png_from_array(yz_slice, path_to_directory + '/yz', _make_filename(6, idx))
+        # png_from_array(yz_slice, path_to_directory + '/yz', _make_filename(6, idx))
+        threading.Thread(None, png_from_array, None, (yz_slice, path_to_directory + '/yz', _make_filename(6, idx)) ).run()
+
+# def _worker(voxel, path_to_directory):
+#     png_from_array
+
 
 def png_from_array(array_slice, path_to_directory, name):
     '''Takes 2D array and saves it at the specified path with the specified name'''

@@ -5,6 +5,12 @@
 {% for axis in png_files.x_axis %}
   <link rel="preload" as="image" href="{{MEDIA_URL}}png/{{uid}}/yz/{{name}}">
 {% endfor %}
+{% for axis in png_files.y_axis %}
+  <link rel="preload" as="image" href="{{MEDIA_URL}}png/{{uid}}/xz/{{name}}">
+{% endfor %}
+{% for axis in png_files.z_axis %}
+  <link rel="preload" as="image" href="{{MEDIA_URL}}png/{{uid}}/xy/{{name}}">
+{% endfor %}
 {% block "content" %}
   <script src="{% static "bundle.js" %}" ></script>
   <div class='upper' >
