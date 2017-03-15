@@ -13,6 +13,6 @@ function renderPageElements() {
   for (var i = 0; i < sliders.length; i++) {
     const img = document.querySelector('#' + sliders[i].id[0]);
     const slider = new Slider(sliders[i], img);
-    slider.create();
+    setTimeout( () => slider.create(), 100 );
   }
 }
