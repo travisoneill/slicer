@@ -6,7 +6,7 @@
 
 #install node dependencies and build webpack bundle.js
 cd frontend
-npm install frontend
+npm install
 npm run webpack:build
 cd ..
 
