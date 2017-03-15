@@ -10,9 +10,10 @@ npm install
 npm run webpack:build
 cd ..
 
-# setup python virtual environment and install dependencies
+# setup python virtual environment, install dependencies, and setup database
 pip install virtualenv
 virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r requirements.txt
+python manage.py migrate
 deactivate
