@@ -1,0 +1,4 @@
+#!/bin/bash
+#clears files in media folder
+rm -rf media
+mkdir media

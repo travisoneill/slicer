@@ -1,0 +1,16 @@
+.upper {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.x_axis {
+  margin-right: 40px;
+}
+
+.z_axis {
+  display: flex;
+}
+
+#z {
+  height: 512px;
+}

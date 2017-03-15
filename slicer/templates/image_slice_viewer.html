@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% for axis in png_files.x_axis %}
+  <link rel="preload" as="image" href="{{MEDIA_URL}}png/{{uid}}/yz/{{name}}">
+{% endfor %}
+{% block "content" %}
+  <script src="{% static "bundle.js" %}" ></script>
+  <div class='upper' >
+    <div class='x_axis'>
+      <img id='x' src="{{MEDIA_URL}}png/{{uid}}/yz/{{png_files.x_axis.0}}" class='image' alt='Image Loading'/>
+      <div id='x_slider' class='slider' /></div>
+    </div>
+    <div class='z_axis' >
+      <img id='z' src="{{MEDIA_URL}}png/{{uid}}/xy/{{png_files.z_axis.0}}" class='image' alt='Image Loading'/>
+      <div id='z_slider' class='slider' /></div>
+    </div>
+  </div>
+  <div class='lower' >
+    <div class='y_axis'>
+      <img id='y' src="{{MEDIA_URL}}png/{{uid}}/xz/{{png_files.y_axis.0}}" class='image' alt='Image Loading'/>
+      <div id='y_slider' class='slider' /></div>
+    </div>
+  </div>
+  <div
+    id='data-store'
+    data-x="{{ png_files.x_axis|length }}"
+    data-y="{{ png_files.y_axis|length }}"
+    data-z="{{ png_files.z_axis|length }}"
+  />
+{% endblock %}
